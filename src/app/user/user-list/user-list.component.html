@@ -1,0 +1,27 @@
+<div class="container">
+    <H1 class="text-center mt-3">User List</H1>
+
+    <div class="row mt-5">
+        <table class="mt-4">
+            <tbody class="text-center border border-primary">
+                <tr>
+                <th>Name</th> 
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+           <tr *ngFor="let item of usersArr">
+            <td class="border">{{item.firstName}} &nbsp; {{item.lastName}}</td>
+            <td class="border">{{item.email}}</td>
+            <td class="border">{{item.phone}}</td>
+            <td class="border"><i class="bi bi-pencil" (click)="editData(item.id)"> </i>  &nbsp; <i class="bi bi-trash" (click)="deleteData(item.id)"></i></td>
+
+           </tr>
+            </tbody>
+        </table>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2 mt-2" type="button" (click)="toUpsert()">Add User</button>
+        </div>
+    </div>
+</div>
+

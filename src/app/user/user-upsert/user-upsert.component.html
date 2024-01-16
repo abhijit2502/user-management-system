@@ -1,0 +1,58 @@
+<div class="container">
+  <form [formGroup]="userForm" class="w-25 m-3 p-3 position-absolute top-50 start-50 translate-middle shadow-lg rounded">
+    
+    <H4 class="text-center mb-1">{{heading}}</H4>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="firstName">
+      <div *ngIf="userForm.get('firstName')?.touched || userForm.get('firstName')?.dirty">
+        <div *ngIf="userForm.get('firstName')?.errors?.['required']" class="form-text text-danger" id="basic-addon4">
+          This is required Field*.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="lastName">
+      <div *ngIf="userForm.get('lastName')?.touched || userForm.get('lastName')?.dirty">
+        <div *ngIf="userForm.get('lastName')?.errors?.['required']" class="form-text text-danger" id="basic-addon4">
+          This is required Field*.</div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Address</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="address">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="email">
+      <div *ngIf="userForm.get('email')?.touched || userForm.get('email')?.dirty">
+        <div *ngIf="userForm.get('email')?.errors?.['required']" class="form-text text-danger" id="basic-addon4">
+          This is required Field*.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Phone</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" formControlName="phone">
+      <div *ngIf="userForm.get('phone')?.touched || userForm.get('phone')?.dirty">
+        <div *ngIf="userForm.get('phone')?.errors?.['required']" class="form-text text-danger" id="basic-addon4">
+          This is required Field*.
+        </div>
+        <div
+          *ngIf="userForm.get('phone')?.errors?.['minlength'] || userForm.get('phone')?.errors?.['maxlength'] || userForm.get('phone')?.errors?.['pattern']"
+          class="form-text text-danger" id="basic-addon4">
+          Enter a 10 digit valid mobile number</div>
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="submit" class="btn btn-primary text-center" (click)="getUserDetails()"
+        [disabled]="userForm.invalid">Submit</button>
+    </div>
+  </form>
+
+</div>
